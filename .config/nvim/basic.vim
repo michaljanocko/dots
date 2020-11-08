@@ -33,3 +33,4 @@ autocmd VimEnter * colorscheme gruvbox
 
 " Trailing whitespace and final new-line
 autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\($\n\s*\)\+\%$/\n/e
