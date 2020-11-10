@@ -16,16 +16,22 @@ autocmd VimEnter *
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'alx741/vim-rustfmt'
+Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'docker/docker'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'mhinz/vim-mix-format'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neomake/neomake'
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'ruby-formatter/rufo-vim'
-Plug 'toml-lang/toml'
+Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +40,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'voldikss/vim-floaterm'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Color schemes
 Plug 'mhinz/vim-janah'
@@ -46,19 +53,14 @@ call plug#end()
 let g:coc_global_extensions = [
   \'coc-css',
   \'coc-cssmodules',
-  \'coc-docker',
-  \'coc-elixir',
   \'coc-emmet',
   \'coc-emoji',
   \'coc-eslint',
-  \'coc-floatinput',
-  \'coc-floaterm',
   \'coc-flutter',
   \'coc-html',
   \'coc-json',
   \'coc-markdownlint',
   \'coc-marketplace',
-  \'coc-pairs',
   \'coc-python',
   \'coc-rust-analyzer',
   \'coc-sh',
