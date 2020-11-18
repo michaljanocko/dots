@@ -1,6 +1,7 @@
 " Enable autocompletion
 filetype plugin on
 syntax on
+set encoding=UTF-8
 
 " Set reasonable split defaults
 set splitbelow splitright
@@ -30,6 +31,7 @@ set updatetime=500
 
 " Set gruvbox
 autocmd VimEnter * colorscheme gruvbox
+autocmd VimEnter * :RainbowParentheses
 
 " Trailing whitespace and final new-line
 autocmd BufWritePre * %s/\s\+$//e

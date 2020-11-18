@@ -16,7 +16,6 @@ autocmd VimEnter *
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'alx741/vim-rustfmt'
 Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,6 +30,7 @@ Plug 'neomake/neomake'
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'ruby-formatter/rufo-vim'
+Plug 'rust-lang/rust.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -53,6 +53,7 @@ call plug#end()
 let g:coc_global_extensions = [
   \'coc-css',
   \'coc-cssmodules',
+  \'coc-elixir',
   \'coc-emmet',
   \'coc-emoji',
   \'coc-eslint',
