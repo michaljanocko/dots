@@ -16,31 +16,77 @@ autocmd VimEnter *
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'cespare/vim-toml'
-Plug 'ctrlpvim/ctrlp.vim'
+" Caddyfile
+Plug 'isobit/vim-caddyfile'
+
+" EditorConfig
 Plug 'editorconfig/editorconfig-vim'
+
+" Elixir
 Plug 'elixir-editors/vim-elixir'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-mix-format'
-Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neomake/neomake'
-Plug 'ngmy/vim-rubocop'
-Plug 'preservim/nerdtree'
-Plug 'ruby-formatter/rufo-vim'
-Plug 'rust-lang/rust.vim'
 Plug 'slashmili/alchemist.vim'
+
+" GraphQL
+Plug 'jparise/vim-graphql'
+
+" HTML
+Plug 'mattn/emmet-vim'
+
+" JSON
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-jdaddy'
+
+" Liquid
+Plug 'tpope/vim-liquid'
+
+" Ruby
+Plug 'ngmy/vim-rubocop'
+Plug 'ruby-formatter/rufo-vim'
+Plug 'tpope/vim-bundler'
+Plug 'vim-ruby/vim-ruby'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Svelte
+Plug 'leafOfTree/vim-svelte-plugin'
+
+" TOML
+Plug 'cespare/vim-toml'
+
+" Typescript
+Plug 'herringtondarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+
+" Editor support
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/vim-emoji'
+Plug 'mhinz/vim-startify'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'voldikss/vim-floaterm'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Color schemes
 Plug 'mhinz/vim-janah'
@@ -48,30 +94,3 @@ Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
 
 call plug#end()
-
-" Install coc.nvim extensions
-let g:coc_global_extensions = [
-  \'coc-css',
-  \'coc-cssmodules',
-  \'coc-elixir',
-  \'coc-emmet',
-  \'coc-emoji',
-  \'coc-eslint',
-  \'coc-flutter',
-  \'coc-html',
-  \'coc-json',
-  \'coc-markdownlint',
-  \'coc-marketplace',
-  \'coc-python',
-  \'coc-rust-analyzer',
-  \'coc-sh',
-  \'coc-solargraph',
-  \'coc-stylelint',
-  \'coc-svg',
-  \'coc-vetur',
-  \'coc-vimlsp',
-  \'coc-webpack',
-  \'coc-xml',
-  \'coc-yaml',
-  \'coc-yank'
-  \]

@@ -11,8 +11,8 @@ set hidden nobackup nowritebackup
 
 " Set my preferred tab behaviour
 set
-  \ softtabstop=4
-  \ shiftwidth=4
+  \ softtabstop=2
+  \ shiftwidth=2
   \ smarttab
   \ expandtab
   \ shiftround
@@ -27,12 +27,8 @@ set hlsearch ignorecase smartcase
 set cursorline
 
 set cmdheight=2
-set updatetime=500
+set updatetime=5
 
-" Set gruvbox
+" Set colors
 autocmd VimEnter * colorscheme gruvbox
 autocmd VimEnter * :RainbowParentheses
-
-" Trailing whitespace and final new-line
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\($\n\s*\)\+\%$/\n/e
