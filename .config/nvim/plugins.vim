@@ -30,6 +30,9 @@ Plug 'slashmili/alchemist.vim'
 " GraphQL
 Plug 'jparise/vim-graphql'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
 " HTML
 Plug 'mattn/emmet-vim'
 
