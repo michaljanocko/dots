@@ -1,0 +1,36 @@
+#
+# Alacritty config
+#
+
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 8
+    y: 8
+  dynamic_title: false
+
+scrolling:
+  history: 50000
+  multiplier: 1
+
+font:
+  normal:
+    family: JetBrains Mono
+  size: 8
+
+  colors:
+    primary: 0x1d2021
+
+selection:
+  save_to_clipboard: false
+
+key_bindings:
+  - { key: Escape, mods: Shift, action: ToggleViMode }
+  - { key: D, mods: Alt, action: ScrollPageDown }
+  - { key: U, mods: Alt, action: ScrollPageUp }
+  - { key: J, mods: Alt, action: ScrollLineDown }
+  - { key: K, mods: Alt, action: ScrollLineUp }
+  - { key: J, mods: Alt|Shift, action: DecreaseFontSize }
+  - { key: K, mods: Alt|Shift, action: IncreaseFontSize }
