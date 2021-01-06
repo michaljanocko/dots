@@ -19,6 +19,9 @@ call plug#begin(stdpath('data') . '/plugged')
 " Caddyfile
 Plug 'isobit/vim-caddyfile'
 
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
+
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 
@@ -39,6 +42,9 @@ Plug 'tpope/vim-jdaddy'
 
 " Liquid
 Plug 'tpope/vim-liquid'
+
+" Python
+Plug 'vim-python/python-syntax'
 
 " Ruby
 Plug 'ngmy/vim-rubocop'
@@ -89,6 +95,7 @@ else
 endif
 
 " Color schemes
+Plug 'joshdick/onedark.vim'
 Plug 'mhinz/vim-janah'
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'

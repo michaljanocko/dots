@@ -8,5 +8,6 @@
 alias sudo='sudo '
 alias ls='exa'
 alias vim='nvim'
+alias venv='source venv/bin/activate'
 alias config='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 export PS1="\[$(tput setaf 4)\][\[$(tput setaf 3)\]\u\[$(tput setaf 1)\]@\[$(tput setaf 6)\]\h\[$(tput setaf 4)\]] \[$(tput setaf 7)\]\w\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"

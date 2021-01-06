@@ -24,6 +24,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 """ Python
 
 let g:ale_python_auto_pipenv = 1
+let g:python_highlight_all = 1
 
 """ Ruby
 
