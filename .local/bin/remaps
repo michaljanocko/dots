@@ -1,0 +1,12 @@
+#!/bin/sh
+
+setxkbmap \
+  -layout us,cz \
+  -option caps:escape_shifted_capslock \
+  -option altwin:swap_lalt_lwin \
+  -option grp:shifts_toggle \
+  -option compose:menu
+
+killall xcape 2>/dev/null
+xcape -e 'Super_L=Escape'
+xset r rate 300 50

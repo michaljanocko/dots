@@ -60,7 +60,8 @@ Plug 'cespare/vim-toml'
 
 " Typescript
 Plug 'herringtondarkholme/yats.vim'
-" Plug 'leafgarland/typescript-vim'
+Plug 'ruanyl/vim-sort-imports'
+Plug 'styled-components/vim-styled-components'
 
 " Editor support
 Plug 'ctrlpvim/ctrlp.vim'
