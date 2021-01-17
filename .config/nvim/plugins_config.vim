@@ -39,3 +39,6 @@ let g:rustfmt_autosave = 1
 
 let g:vim_svelte_plugin_use_sass = 1
 let g:vim_svelte_plugin_use_typescript = 1
+
+""" Typescript
+let g:import_sort_auto = 1

@@ -2,8 +2,14 @@
 # ~/.bash_profile
 #
 
-[[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && startx
-
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export LATLON="45:-93"
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+
+export PATH=$PATH:$ANDROID_SDK_ROOT/platforms/
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+
+source ~/.profile
