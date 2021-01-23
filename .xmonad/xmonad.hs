@@ -51,6 +51,7 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm, xK_space), spawn "rofi -show run")
     , ((modm, xK_b), spawn defaultWebBrowser)
+    , ((modm, xK_e), spawn "mono")
 
     -- Close focused window
     , ((modm, xK_q), kill)
