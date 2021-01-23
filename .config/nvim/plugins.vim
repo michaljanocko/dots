@@ -19,6 +19,12 @@ call plug#begin(stdpath('data') . '/plugged')
 " Caddyfile
 Plug 'isobit/vim-caddyfile'
 
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
+
+" Dockerfile
+Plug 'ekalinin/Dockerfile.vim'
+
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 
@@ -26,6 +32,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim'
+
+" Elm
+Plug 'andys8/vim-elm-syntax'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -43,9 +52,10 @@ Plug 'tpope/vim-jdaddy'
 " Liquid
 Plug 'tpope/vim-liquid'
 
+" Python
+Plug 'vim-python/python-syntax'
+
 " Ruby
-Plug 'ngmy/vim-rubocop'
-Plug 'ruby-formatter/rufo-vim'
 Plug 'tpope/vim-bundler'
 Plug 'vim-ruby/vim-ruby'
 
@@ -80,6 +90,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'voldikss/vim-floaterm'
@@ -93,6 +104,7 @@ else
 endif
 
 " Color schemes
+Plug 'joshdick/onedark.vim'
 Plug 'mhinz/vim-janah'
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'

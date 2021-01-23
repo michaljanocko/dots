@@ -18,7 +18,7 @@ set
   \ shiftround
 
 " Line numbers
-set number relativenumber
+set number
 
 " Configure search
 set hlsearch ignorecase smartcase
@@ -32,3 +32,8 @@ set updatetime=5
 " Set colors
 autocmd VimEnter * colorscheme gruvbox
 autocmd VimEnter * :RainbowParentheses
+
+" Terminal
+autocmd TermOpen * set nonumber
+autocmd TermOpen * startinsert
+autocmd TermClose * stopinsert
