@@ -35,13 +35,12 @@ nnoremap <leader><CR> i<CR><Esc>
 " Go to homescreen
 nnoremap <leader>s :Startify<CR>
 " Open terminal
+nnoremap <leader>t :term<CR>
 nnoremap <leader><leader> :FloatermToggle<CR>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <S-Esc> <Esc>
 " Reload file
 nnoremap <leader>R :edit<CR>
-" Fix indents
-nnoremap <leader>t :retab<CR>
 " Apply config
 nnoremap <leader>A :source %<CR>
 " Install plugins

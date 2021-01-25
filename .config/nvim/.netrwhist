@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/michaljanocko/Projects/rover/frontend/src/routes'
 let g:netrw_dirhist_6='/home/michaljanocko/Projects/rover'
 let g:netrw_dirhist_5='/usr/share/nvim/runtime/doc'
 let g:netrw_dirhist_4='/home/michaljanocko/.config/nvim'

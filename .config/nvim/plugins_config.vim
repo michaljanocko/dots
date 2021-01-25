@@ -7,6 +7,9 @@ let g:deoplete#enable_at_startup = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-""" NERDtree
+""" CHADtree
 
-nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>n <cmd>CHADopen<CR>
+let g:chadtree_settings = {
+  \ "theme.icon_colour_set": "github"
+  \ }
