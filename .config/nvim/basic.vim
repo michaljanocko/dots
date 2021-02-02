@@ -13,6 +13,7 @@ set hidden nobackup nowritebackup
 set
   \ softtabstop=2
   \ shiftwidth=2
+  \ tabstop=4
   \ smarttab
   \ expandtab
   \ shiftround

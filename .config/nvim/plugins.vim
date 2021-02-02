@@ -66,6 +66,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'evanleck/vim-svelte'
 Plug 'leafOfTree/vim-svelte-plugin'
 
+" SQL
+Plug 'shmup/vim-sql-syntax'
+
 " TOML
 Plug 'cespare/vim-toml'
 
@@ -75,7 +78,6 @@ Plug 'ruanyl/vim-sort-imports'
 Plug 'styled-components/vim-styled-components'
 
 " Editor support
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -84,7 +86,7 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'mhinz/vim-startify'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
