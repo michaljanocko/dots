@@ -43,6 +43,8 @@ Plug 'jparise/vim-graphql'
 Plug 'neovimhaskell/haskell-vim'
 
 " HTML
+Plug 'alvan/vim-closetag'
+Plug 'glench/vim-jinja2-syntax'
 Plug 'mattn/emmet-vim'
 
 " JSON
