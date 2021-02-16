@@ -34,6 +34,8 @@ nnoremap <leader><CR> i<CR><Esc>
 
 " Go to homescreen
 nnoremap <leader>s :Startify<CR>
+" Toggle Goyo
+nnoremap <leader>G :Goyo<CR>
 " Open terminal
 nnoremap <leader>t :term<CR>
 nnoremap <leader><leader> :FloatermToggle<CR>
