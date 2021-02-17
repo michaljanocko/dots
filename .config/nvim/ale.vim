@@ -1,10 +1,30 @@
 let g:ale_linters = {
-  \ 'elm': ['elm-ls', 'elm-make']
+  \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
+  \ 'elm': ['elm_ls', 'make'],
+  \ 'go': ['golint', 'govet', 'gopls'],
+  \ 'haskell': ['ghc', 'hlint', 'hls'],
+  \ 'javascript': ['eslint'],
+  \ 'json': ['jsonlint'],
+  \ 'python': ['bandit', 'flake8', 'pylint', 'pyls', 'pyright'],
+  \ 'ruby': ['reek', 'rubocop', 'ruby', 'solargraph', 'sorbet'],
+  \ 'rust': ['cargo', 'rustc', 'analyzer'],
+  \ 'svelte': ['eslint', 'stylelint'],
+  \ 'typescript': ['eslint', 'tsserver']
   \ }
 
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'elm': ['elm-format']
+  \ 'elixir': ['mix_format'],
+  \ 'elm': ['elm-format'],
+  \ 'go': ['gofmt'],
+  \ 'haskell': ['brittany'],
+  \ 'html': ['prettier'],
+  \ 'javascript': ['prettier'],
+  \ 'json': ['prettier'],
+  \ 'python': ['yapf'],
+  \ 'ruby': ['rubocop'],
+  \ 'svelte': ['prettier', 'eslint'],
+  \ 'typescript': ['prettier']
   \ }
 
 let g:ale_linters_explicit = 1
