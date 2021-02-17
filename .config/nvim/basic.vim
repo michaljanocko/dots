@@ -18,6 +18,9 @@ set
   \ expandtab
   \ shiftround
 
+" Line breaks
+set linebreak
+
 " Line numbers
 set number
 
