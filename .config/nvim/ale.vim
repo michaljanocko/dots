@@ -30,11 +30,13 @@ let g:ale_fixers = {
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
+let g:ale_completion_enabled = 1
+
 let g:ale_completion_delay = 0
 
 let g:ale_echo_delay = 0
 
-"Show error on hover
+" Show error on hover
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_delay = 0
 let g:ale_virtualtext_prefix = '▶ '

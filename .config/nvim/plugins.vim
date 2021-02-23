@@ -101,6 +101,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'voldikss/vim-floaterm'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else

@@ -201,7 +201,7 @@ myLogHook = return ()
 -- STARTUP HOOK
 myStartupHook = do
     _ <- spawnPipe "remaps"
-    _ <- spawnPipe "redshift -l \"45:-93\" &"
+    _ <- spawnPipe "redshift -l \"45:-93\" -t 6500K:4000K &"
     spawn "wallpaper"
     Cursor.setDefaultCursor Cursor.xC_left_ptr
     setWMName "LG3D"
