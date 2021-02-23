@@ -23,6 +23,7 @@ let g:ale_fixers = {
   \ 'json': ['prettier'],
   \ 'python': ['yapf'],
   \ 'ruby': ['rubocop'],
+  \ 'rust': ['rustfmt'],
   \ 'svelte': ['prettier', 'eslint'],
   \ 'typescript': ['prettier']
   \ }

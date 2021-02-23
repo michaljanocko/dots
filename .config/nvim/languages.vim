@@ -14,10 +14,6 @@ let b:ale_python_black_options = "-l 79"
 
 let g:python_highlight_all = 1
 
-" Rust
-
-let g:rustfmt_autosave = 1
-
 " Svelte
 
 let g:vim_svelte_plugin_use_sass = 1
