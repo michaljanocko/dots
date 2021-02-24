@@ -1,6 +1,6 @@
 let g:ale_linters = {
   \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
-  \ 'elm': ['elm_ls', 'make'],
+  \ 'elm': ['elm_ls'],
   \ 'go': ['golint', 'govet', 'gopls'],
   \ 'haskell': ['ghc', 'hlint', 'hls'],
   \ 'javascript': ['eslint'],
