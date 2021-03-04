@@ -1,6 +1,6 @@
 let g:ale_linters = {
   \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
-  \ 'elm': ['elm_ls'],
+  \ 'elm': ['make'],
   \ 'go': ['golint', 'govet', 'gopls'],
   \ 'haskell': ['ghc', 'hlint', 'hls'],
   \ 'javascript': ['eslint'],
@@ -19,7 +19,7 @@ let g:ale_fixers = {
   \ 'go': ['gofmt'],
   \ 'haskell': ['brittany'],
   \ 'html': ['prettier'],
-  \ 'javascript': ['prettier'],
+  \ 'javascript': ['eslint'],
   \ 'json': ['prettier'],
   \ 'python': ['yapf'],
   \ 'ruby': ['rubocop'],

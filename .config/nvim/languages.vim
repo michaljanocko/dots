@@ -19,8 +19,6 @@ let g:python_highlight_all = 1
 let g:vim_svelte_plugin_use_sass = 1
 let g:vim_svelte_plugin_use_typescript = 1
 
-let g:svelte_preprocessors = ['typescript']
-
 " Typescript
 
 let g:import_sort_auto = 1

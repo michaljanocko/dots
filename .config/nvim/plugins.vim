@@ -47,6 +47,10 @@ Plug 'alvan/vim-closetag'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'mattn/emmet-vim'
 
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
 " JSON
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-jdaddy'
@@ -57,6 +61,9 @@ Plug 'tpope/vim-liquid'
 " Python
 Plug 'vim-python/python-syntax'
 
+" ReScript
+Plug 'rescript-lang/vim-rescript'
+
 " Ruby
 Plug 'tpope/vim-bundler'
 Plug 'vim-ruby/vim-ruby'
@@ -65,7 +72,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'rust-lang/rust.vim'
 
 " Svelte
-Plug 'evanleck/vim-svelte'
 Plug 'leafOfTree/vim-svelte-plugin'
 
 " SQL
@@ -74,12 +80,8 @@ Plug 'shmup/vim-sql-syntax'
 " TOML
 Plug 'cespare/vim-toml'
 
-" Typescript
-Plug 'herringtondarkholme/yats.vim'
-Plug 'ruanyl/vim-sort-imports'
-Plug 'styled-components/vim-styled-components'
-
 " Editor support
+Plug 'easymotion/vim-easymotion'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
