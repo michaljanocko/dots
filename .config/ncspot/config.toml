@@ -1,3 +1,7 @@
+shuffle = true
+use_nerdfont = true
+volnorm = true
+
 [keybindings]
 "Ctrl+d" = "move down 5"
 "Ctrl+u" = "move up 5"
