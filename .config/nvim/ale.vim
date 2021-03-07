@@ -1,4 +1,5 @@
 let g:ale_linters = {
+  \ 'dart': ['dartanalyzer'],
   \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
   \ 'elm': ['make'],
   \ 'go': ['golint', 'govet', 'gopls'],
@@ -13,7 +14,8 @@ let g:ale_linters = {
   \ }
 
 let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ '*': ['trim_whitespace'],
+  \ 'dart': ['dartfmt'],
   \ 'elixir': ['mix_format'],
   \ 'elm': ['elm-format'],
   \ 'go': ['gofmt'],
