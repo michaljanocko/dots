@@ -3,6 +3,11 @@ filetype plugin on
 syntax on
 set encoding=UTF-8
 
+" Shell to bash
+if &shell =~# 'fish$'
+  set shell=bash
+endif
+
 " Set reasonable split defaults
 set splitbelow splitright
 
