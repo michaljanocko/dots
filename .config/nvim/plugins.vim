@@ -30,7 +30,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim'
 
 " Elm
