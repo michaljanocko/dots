@@ -39,6 +39,7 @@ import Graphics.X11.ExtraTypes.XorgDefault
 defaultTerminal = "alacritty"
 
 defaultWebBrowser = "firefox"
+defaultWebBrowser' = "chromium"
 
 defaultWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
@@ -51,6 +52,7 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm, xK_space), spawn "rofi -show run")
     , ((modm, xK_b), spawn defaultWebBrowser)
+    , ((modm .|. shiftMask, xK_b), spawn defaultWebBrowser')
     , ((modm, xK_e), spawn "mono")
 
     -- Close focused window
