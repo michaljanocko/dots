@@ -1,0 +1,4 @@
+#!/bin/sh
+cp ${1}PKGBUILD .
+makepkg --printsrcinfo > .SRCINFO
+git add .
