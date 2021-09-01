@@ -47,6 +47,8 @@ Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 
+Plug 'ellisonleao/glow.nvim', {'do': ':GlowInstall', 'branch': 'main'}
+
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
 

@@ -3,7 +3,6 @@ nnoremap <space> <nop>
 
 nnoremap ; :
 nnoremap 0 ^
-nnoremap <leader>n :CHADopen --always-focus<CR>
 
 " Reasonable window switching
 map <C-j> <Esc><C-w>j
@@ -15,6 +14,8 @@ map <C-l> <Esc><C-w>l
 nnoremap <leader>V :vsplit<CR>
 nnoremap <leader>H :split<CR>
 
+" Cancel search
+nnoremap <Esc> :nohlsearch<CR>
 " Adding line without insert mode
 nnoremap <silent> <leader>o :<C-u>call append(line("."), repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
@@ -28,3 +29,10 @@ nnoremap <leader>A :source %<CR>
 " Install plugins
 nnoremap <leader>P :PlugInstall<CR>
 
+nnoremap <leader>n :CHADopen --always-focus<CR>
+
+" LSP
+nnoremap gd :lua vim.lsp.buf.definition()<CR>
+nnoremap gr :lua vim.lsp.buf.rename()<CR>
+nnoremap gh :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>f :lua vim.lsp.buf.formatting()<CR>
