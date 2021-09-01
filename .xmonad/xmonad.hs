@@ -1,9 +1,9 @@
 -- Defaults
-import Data.Monoid
 import qualified Data.Map as Map
-import System.Exit
-import System.Environment
+import Data.Monoid
 import System.Directory
+import System.Environment
+import System.Exit
 
 -- Core
 import XMonad
@@ -20,11 +20,15 @@ import XMonad.Hooks.SetWMName
 -- Layout
 import qualified XMonad.Layout.Fullscreen as Fullscreen
 import XMonad.Layout.Grid
+import XMonad.Layout.IndependentScreens
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
 import XMonad.Layout.ToggleLayouts
+
+-- Operations
+import XMonad.Operations
 
 -- Util
 import qualified XMonad.Util.Cursor as Cursor
@@ -36,24 +40,24 @@ import Graphics.X11.ExtraTypes.XorgDefault
 
 
 -- VARIABLES
-defaultTerminal = "alacritty"
+defaultTerminal = "wezterm"
 
 defaultWebBrowser = "firefox"
 defaultWebBrowser' = "chromium"
-
-defaultWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 scriptDir = "~/.local/bin/"
 
 
 -- KEYBINDINGS
-defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
+defaultKeyBindings conf@XConfig { XMonad.modMask = modm } = Map.fromList $
     -- App bindings
-    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm, xK_Return), spawn $ command "fish")
     , ((modm, xK_space), spawn "rofi -show run")
     , ((modm, xK_b), spawn defaultWebBrowser)
     , ((modm .|. shiftMask, xK_b), spawn defaultWebBrowser')
-    , ((modm, xK_e), spawn "mono")
+    , ((modm, xK_r), spawn $ command "ranger")
+    , ((modm .|. shiftMask, xK_p), spawn $ command "pulsemixer")
+    , ((modm .|. shiftMask, xK_r), spawn "maim -s -u | xclip -selection clipboard -t image/png -i")
 
     -- Close focused window
     , ((modm, xK_q), kill)
@@ -80,9 +84,6 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
     -- Tile floating back
     , ((modm, xK_t), withFocused $ windows . W.sink)
 
-    -- Toggle status bar
-    , ((modm .|. shiftMask, xK_p), sendMessage ToggleStruts)
-
     -- Volume keys
     , ((noModMask, xF86XK_AudioLowerVolume), lowerVolume)
     , ((modm, xK_u), lowerVolume)
@@ -104,19 +105,23 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
     , ((modm, xK_o), nextTrack)
 
     -- Monitor brightness
-    , ((noModMask, xF86XK_MonBrightnessDown), spawn "brightnessctl s 5%- -e")
-    , ((noModMask, xF86XK_MonBrightnessUp), spawn "brightnessctl s 5%+ -e")
+    , ((noModMask, xF86XK_MonBrightnessDown), lowerBrightness)
+    , ((modm .|. shiftMask, xK_y), lowerBrightness)
+    --
+    , ((noModMask, xF86XK_MonBrightnessUp), raiseBrightness)
+    , ((modm .|. shiftMask, xK_o), raiseBrightness)
 
     -- Restart XMonad
-    , ((modm .|. shiftMask, xK_r), spawn "xmonad --recompile && xmonad --restart")
+    -- , ((modm .|. shiftMask, xK_w), spawn "xmonad --recompile && xmonad --restart")
+    , ((modm .|. shiftMask, xK_w), restart "xmonad" True)
     -- Quit XMonad
-    , ((modm .|. shiftMask, xK_q), io $ exitWith ExitSuccess)
+    , ((modm .|. shiftMask, xK_q), io exitSuccess)
     ]
 
     ++
     -- Switching and moving between workspaces
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf)
+    [((m .|. modm, k), windows $ onCurrentScreen f i)
+        | (i, k) <- zip (workspaces' conf)
             [ xK_plus
             , xK_ecaron
             , xK_scaron
@@ -129,8 +134,8 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
             , xK_eacute
             ]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
-    ] ++ [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) $ [xK_1 .. xK_9] ++ [xK_0]
+    ] ++ [((m .|. modm, k), windows $ onCurrentScreen f i)
+        | (i, k) <- zip (workspaces' conf) $ [xK_1 .. xK_9] ++ [xK_0]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
     ]
 
@@ -145,6 +150,8 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
     ]
 
     where
+        command cmd = XMonad.terminal conf ++ " start -- " ++ cmd
+        --
         lowerVolume = spawn "pamixer -d 5 --allow-boost"
         raiseVolume = spawn "pamixer -i 5 --allow-boost"
         toggleMute = spawn "pamixer -t"
@@ -152,20 +159,23 @@ defaultKeyBindings conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
         playPause = spawn "playerctl play-pause"
         prevTrack = spawn "playerctl previous"
         nextTrack = spawn "playerctl next"
+        --
+        lowerBrightness = spawn "brightnessctl s 5%- -e"
+        raiseBrightness = spawn "brightnessctl s 5%+ -e"
 
 
 -- MOUSE BINDINGS
-defaultMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList $
+defaultMouseBindings XConfig { XMonad.modMask = modm } = Map.fromList $
     [ ( (modm, button1)
-      , (\w -> focus w
+      , \w -> focus w
         >> mouseMoveWindow w
         >> windows W.shiftMaster
-      ))
+      )
     , ( (modm, button3)
-      , (\w -> focus w
+      , \w -> focus w
         >> mouseResizeWindow w
         >> windows W.shiftMaster
-      ))
+      )
     ]
 
 
@@ -193,7 +203,9 @@ myManageHook =
 
 
 -- EVENT HOOK
-myEventHook = composeAll [ fullscreenEventHook ]
+myEventHook = composeAll
+    [ fullscreenEventHook
+    ]
 
 
 -- LOG HOOK
@@ -202,33 +214,35 @@ myLogHook = return ()
 
 -- STARTUP HOOK
 myStartupHook = do
-    _ <- spawnPipe "remaps"
-    _ <- spawnPipe "redshift -l \"45:-93\" -t 6500K:4000K &"
+    spawnPipe "remaps"
+    spawnPipe "redshift -l \"50:14\" -t 6500K:4000K &"
     spawn "wallpaper"
-    Cursor.setDefaultCursor Cursor.xC_left_ptr
     setWMName "LG3D"
+    Cursor.setDefaultCursor Cursor.xC_left_ptr
 
 
 -- MAIN
 main :: IO ()
-main = xmonad
-    $ docks
-    $ ewmh
-    $ Fullscreen.fullscreenSupport
-    $ defaultConfig
-        { modMask = mod4Mask
-        , terminal = defaultTerminal
-        , focusFollowsMouse = False
-        , clickJustFocuses = False
-        , borderWidth = 2
-        , workspaces = defaultWorkspaces
-        , normalBorderColor = "#1d2021"
-        , focusedBorderColor = "#928374"
-        , keys = defaultKeyBindings
-        , mouseBindings = defaultMouseBindings
-        , layoutHook = myLayoutHook
-        , manageHook = myManageHook
-        , handleEventHook = myEventHook
-        , logHook = myLogHook
-        , startupHook = myStartupHook
-        }
+main = do
+    screenCount <- countScreens
+    xmonad
+        $ docks
+        $ ewmh
+        $ Fullscreen.fullscreenSupport
+        $ defaultConfig
+            { modMask = mod4Mask
+            , terminal = defaultTerminal
+            , focusFollowsMouse = False
+            , clickJustFocuses = False
+            , borderWidth = 2
+            , workspaces = withScreens screenCount ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+            , normalBorderColor = "#1d2021"
+            , focusedBorderColor = "#928374"
+            , keys = defaultKeyBindings
+            , mouseBindings = defaultMouseBindings
+            , layoutHook = myLayoutHook
+            , manageHook = myManageHook
+            , handleEventHook = myEventHook
+            , logHook = myLogHook
+            , startupHook = myStartupHook
+            }
